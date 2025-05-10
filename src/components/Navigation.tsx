@@ -1,38 +1,28 @@
 
-import { Link, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export function Navigation() {
-  const location = useLocation();
-  
   return (
-    <nav className="border-b">
-      <div className="container flex items-center justify-between h-16">
-        <div className="flex items-center gap-4">
-          <h1 className="text-xl font-bold">Attendance System</h1>
-          
-          <div className="flex items-center space-x-4 ml-8">
-            <Button 
-              asChild 
-              variant={location.pathname === "/" ? "default" : "ghost"}
-            >
-              <Link to="/">Dashboard</Link>
-            </Button>
-            
-            <Button 
-              asChild 
-              variant={location.pathname === "/register-employee" ? "default" : "ghost"}
-            >
-              <Link to="/register-employee">Register Employee</Link>
-            </Button>
-            
-            <Button 
-              asChild 
-              variant={location.pathname === "/record-attendance" ? "default" : "ghost"}
-            >
-              <Link to="/record-attendance">Record Attendance</Link>
-            </Button>
-          </div>
+    <nav className="bg-white border-b">
+      <div className="container flex h-16 items-center">
+        <div className="mr-4 hidden md:flex">
+          <Link to="/" className="text-xl font-bold">
+            HR System
+          </Link>
+        </div>
+        <div className="flex items-center space-x-4">
+          <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
+            Dashboard
+          </Link>
+          <Link to="/register-employee" className="text-sm font-medium transition-colors hover:text-primary">
+            Register Employee
+          </Link>
+          <Link to="/record-attendance" className="text-sm font-medium transition-colors hover:text-primary">
+            Record Attendance
+          </Link>
+          <Link to="/bulk-attendance" className="text-sm font-medium transition-colors hover:text-primary">
+            Bulk Attendance
+          </Link>
         </div>
       </div>
     </nav>
