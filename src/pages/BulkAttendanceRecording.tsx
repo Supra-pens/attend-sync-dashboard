@@ -13,15 +13,15 @@ export default function BulkAttendanceRecording() {
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Bulk Attendance Recording</h1>
             <p className="text-muted-foreground mt-2">
-              Record attendance for multiple employees at once
+              Record attendance for all employees with a single submission
             </p>
           </div>
           
           <Card>
             <CardHeader>
-              <CardTitle>Bulk Attendance Entry</CardTitle>
+              <CardTitle>Daily Attendance Entry</CardTitle>
               <CardDescription>
-                Record attendance for multiple employees on the same date
+                Record attendance, leaves, and absences for multiple employees on the same date
               </CardDescription>
             </CardHeader>
             <CardContent>
