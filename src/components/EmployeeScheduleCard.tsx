@@ -34,6 +34,10 @@ export function EmployeeScheduleCard({ employee }: EmployeeScheduleCardProps) {
               <p className="text-sm text-muted-foreground">Shift Start</p>
               <p className="text-xl font-semibold text-blue-600">{employee.shiftStart || "N/A"}</p>
             </div>
+            <div>
+              <p className="text-sm text-muted-foreground">Shift End</p>
+              <p className="text-xl font-semibold text-blue-600">{employee.shiftEnd || "N/A"}</p>
+            </div>
           </div>
           
           <div>

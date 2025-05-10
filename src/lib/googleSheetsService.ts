@@ -10,8 +10,9 @@ export interface Employee {
   department: string;
   status: 'PAYROLLED' | 'NON-PAYROLLED';
   doj: string; // Date of joining
-  allocatedHours: string; // NEW: allocated hours for the employee
-  shiftStart: string; // NEW: shift start time
+  allocatedHours: string; // allocated hours for the employee
+  shiftStart: string; // shift start time
+  shiftEnd: string; // shift end time
 }
 
 export interface AttendanceRecord {
@@ -44,7 +45,8 @@ const mockEmployees: Employee[] = [
     status: "PAYROLLED", 
     doj: "13-06-2023",
     allocatedHours: "08:30",
-    shiftStart: "10:00" 
+    shiftStart: "10:00",
+    shiftEnd: "18:30"
   },
   { 
     id: "2", 
@@ -53,7 +55,8 @@ const mockEmployees: Employee[] = [
     status: "PAYROLLED", 
     doj: "04-06-2024",
     allocatedHours: "08:30",
-    shiftStart: "10:10" 
+    shiftStart: "10:10",
+    shiftEnd: "18:40"
   },
   { 
     id: "3", 
@@ -62,7 +65,8 @@ const mockEmployees: Employee[] = [
     status: "NON-PAYROLLED", 
     doj: "23-03-2024",
     allocatedHours: "08:00",
-    shiftStart: "09:00"
+    shiftStart: "09:00",
+    shiftEnd: "17:00"
   },
   { 
     id: "4", 
@@ -71,7 +75,8 @@ const mockEmployees: Employee[] = [
     status: "PAYROLLED", 
     doj: "05-08-2023",
     allocatedHours: "09:00",
-    shiftStart: "11:00"
+    shiftStart: "11:00",
+    shiftEnd: "20:00"
   },
   { 
     id: "5", 
@@ -80,7 +85,8 @@ const mockEmployees: Employee[] = [
     status: "PAYROLLED", 
     doj: "17-11-2023",
     allocatedHours: "07:30",
-    shiftStart: "10:30"
+    shiftStart: "10:30",
+    shiftEnd: "18:00"
   },
   { 
     id: "6", 
@@ -89,7 +95,8 @@ const mockEmployees: Employee[] = [
     status: "PAYROLLED", 
     doj: "02-02-2024",
     allocatedHours: "08:30",
-    shiftStart: "10:00"
+    shiftStart: "10:00",
+    shiftEnd: "18:30"
   },
   { 
     id: "7", 
@@ -98,7 +105,8 @@ const mockEmployees: Employee[] = [
     status: "PAYROLLED", 
     doj: "14-07-2023",
     allocatedHours: "08:00",
-    shiftStart: "09:30"
+    shiftStart: "09:30",
+    shiftEnd: "17:30"
   },
   { 
     id: "8", 
@@ -107,7 +115,8 @@ const mockEmployees: Employee[] = [
     status: "NON-PAYROLLED", 
     doj: "30-09-2023",
     allocatedHours: "12:00",
-    shiftStart: "21:00"
+    shiftStart: "21:00",
+    shiftEnd: "09:00" // Night shift ending next day
   }
 ];
 
