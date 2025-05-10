@@ -13,7 +13,9 @@ import { AttendanceDatePicker } from "@/components/AttendanceDatePicker";
 import { EmployeeFilter } from "@/components/EmployeeFilter";
 import { AttendanceTable } from "@/components/AttendanceTable";
 import { EmployeeSummaryCard } from "@/components/EmployeeSummaryCard";
+import { EmployeeScheduleCard } from "@/components/EmployeeScheduleCard";
 import { HolidayManager } from "@/components/HolidayManager";
+import { Clock, Calendar, User, Briefcase } from "lucide-react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -71,36 +73,42 @@ const Index = () => {
               value={presentCount}
               description="Total attendance records"
               trend="up"
+              icon={User}
             />
             <StatCard
               title="Absent Days"
               value={absentCount}
               description="Total absent records"
               trend="down"
+              icon={User}
             />
             <StatCard
               title="Late Days"
               value={lateCount}
               description="Employees arriving late"
               trend="down"
+              icon={Clock}
             />
             <StatCard
               title="Overtime Hours"
               value={overtimeCount}
               description="Total overtime records"
               trend="up"
+              icon={Clock}
             />
             <StatCard
               title="Sundays Worked"
               value={sundayCount}
               description="Sunday attendance"
               trend="up"
+              icon={Calendar}
             />
             <StatCard
               title="Attendance Rate"
               value={`${attendanceRate}%`}
               description="Monthly average"
               trend={attendanceRate >= 80 ? "up" : "down"}
+              icon={Briefcase}
             />
           </div>
           
@@ -143,6 +151,7 @@ const Index = () => {
                 <TabsTrigger value="daily">Daily Attendance</TabsTrigger>
                 <TabsTrigger value="monthly">Monthly Report</TabsTrigger>
                 <TabsTrigger value="employees">Employees</TabsTrigger>
+                <TabsTrigger value="schedules">Schedules</TabsTrigger>
               </TabsList>
               
               <AttendanceDatePicker date={selectedDate} setDate={setSelectedDate} />
@@ -240,6 +249,40 @@ const Index = () => {
                             key={employee.id}
                             employee={employee}
                             attendanceRecords={attendanceRecords}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="schedules" className="space-y-4">
+              <Card>
+                <CardHeader className="pb-3">
+                  <CardTitle>Employee Schedules</CardTitle>
+                  <CardDescription>
+                    View shift schedules and allocated hours
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <EmployeeFilter 
+                    employees={employees} 
+                    onFilterChange={setFilteredEmployees} 
+                  />
+                  
+                  <div className="mt-6">
+                    {isLoading ? (
+                      <div className="text-center py-8">
+                        <p>Loading schedule data...</p>
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {filteredEmployees.map((employee) => (
+                          <EmployeeScheduleCard
+                            key={employee.id}
+                            employee={employee}
                           />
                         ))}
                       </div>

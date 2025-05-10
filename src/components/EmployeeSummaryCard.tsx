@@ -10,6 +10,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Employee, AttendanceRecord, calculateAttendanceSummary } from "@/lib/googleSheetsService";
+import { Clock } from "lucide-react";
 
 interface EmployeeSummaryCardProps {
   employee: Employee;
@@ -67,6 +68,25 @@ export function EmployeeSummaryCard({
             <p className={`text-lg font-semibold ${summary.balance >= 0 ? 'text-green-600' : 'text-red-600'}`}>
               {summary.balance >= 0 ? `+${summary.balance}` : summary.balance}
             </p>
+          </div>
+        </div>
+
+        <Separator className="my-4" />
+        
+        <div className="grid grid-cols-2 gap-4">
+          <div className="flex items-center gap-2">
+            <Clock className="h-4 w-4 text-muted-foreground" />
+            <div>
+              <p className="text-sm text-muted-foreground">Allocated Hours</p>
+              <p className="text-lg font-semibold text-blue-600">{employee.allocatedHours || "N/A"}</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <Clock className="h-4 w-4 text-muted-foreground" />
+            <div>
+              <p className="text-sm text-muted-foreground">Shift Start</p>
+              <p className="text-lg font-semibold text-blue-600">{employee.shiftStart || "N/A"}</p>
+            </div>
           </div>
         </div>
       </CardContent>

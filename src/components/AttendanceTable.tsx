@@ -77,6 +77,8 @@ export function AttendanceTable({
             <TableHead>Name</TableHead>
             <TableHead>Department</TableHead>
             <TableHead>Status</TableHead>
+            <TableHead>Allocated</TableHead>
+            <TableHead>Shift Start</TableHead>
             <TableHead>In Time</TableHead>
             <TableHead>Out Time</TableHead>
             <TableHead>Working Hours</TableHead>
@@ -104,6 +106,8 @@ export function AttendanceTable({
                   </TooltipProvider>
                 </TableCell>
                 <TableCell>{getStatusBadge(employee.status)}</TableCell>
+                <TableCell>{employee.allocatedHours || "—"}</TableCell>
+                <TableCell>{employee.shiftStart || "—"}</TableCell>
                 <TableCell>{record?.inTime || "—"}</TableCell>
                 <TableCell>{record?.outTime || "—"}</TableCell>
                 <TableCell>{record?.workingHours || "—"}</TableCell>
@@ -120,7 +124,7 @@ export function AttendanceTable({
           })}
           {paginatedEmployees.length === 0 && (
             <TableRow>
-              <TableCell colSpan={8} className="text-center py-4">
+              <TableCell colSpan={10} className="text-center py-4">
                 No attendance records for this date.
               </TableCell>
             </TableRow>

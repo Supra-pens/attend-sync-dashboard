@@ -1,4 +1,3 @@
-
 // This is a simplified version of Google Sheets API integration
 // In a real application, you would use OAuth2 authentication
 
@@ -11,6 +10,8 @@ export interface Employee {
   department: string;
   status: 'PAYROLLED' | 'NON-PAYROLLED';
   doj: string; // Date of joining
+  allocatedHours: string; // NEW: allocated hours for the employee
+  shiftStart: string; // NEW: shift start time
 }
 
 export interface AttendanceRecord {
@@ -38,59 +39,75 @@ export interface DepartmentSummary {
 const mockEmployees: Employee[] = [
   { 
     id: "1", 
-    name: "SUBINAY NASKAR", 
-    department: "FOILING & HOT STAMPING DEPT. DAY SHIFT", 
+    name: "PALASH BAR", 
+    department: "MOULDING DEPT. (A & B SHIFT)", 
     status: "PAYROLLED", 
-    doj: "04-06-2024" 
+    doj: "13-06-2023",
+    allocatedHours: "08:30",
+    shiftStart: "10:00" 
   },
   { 
     id: "2", 
-    name: "RAJESH KUMAR", 
-    department: "MOULDING DEPT. (A & B SHIFT)", 
+    name: "SUBINAY NASKAR", 
+    department: "FOILING & HOT STAMPING DEPT. DAY SHIFT", 
     status: "PAYROLLED", 
-    doj: "12-01-2023" 
+    doj: "04-06-2024",
+    allocatedHours: "08:30",
+    shiftStart: "10:10" 
   },
   { 
     id: "3", 
     name: "PRIYA SHARMA", 
     department: "REFILLING DEPT.", 
     status: "NON-PAYROLLED", 
-    doj: "23-03-2024" 
+    doj: "23-03-2024",
+    allocatedHours: "08:00",
+    shiftStart: "09:00"
   },
   { 
     id: "4", 
     name: "AMIT SINGH", 
     department: "EXTRUSION DEPT. (A & B SHIFT)", 
     status: "PAYROLLED", 
-    doj: "05-08-2023" 
+    doj: "05-08-2023",
+    allocatedHours: "09:00",
+    shiftStart: "11:00"
   },
   { 
     id: "5", 
     name: "NEHA GUPTA", 
     department: "PEN ASSEMBLING DEPT.", 
     status: "PAYROLLED", 
-    doj: "17-11-2023" 
+    doj: "17-11-2023",
+    allocatedHours: "07:30",
+    shiftStart: "10:30"
   },
   { 
     id: "6", 
     name: "SURESH PATEL", 
     department: "DESPATCH DEPT. DAY SHIFT", 
     status: "PAYROLLED", 
-    doj: "02-02-2024" 
+    doj: "02-02-2024",
+    allocatedHours: "08:30",
+    shiftStart: "10:00"
   },
   { 
     id: "7", 
     name: "MEENA VERMA", 
     department: "OFFICE STAFF", 
     status: "PAYROLLED", 
-    doj: "14-07-2023" 
+    doj: "14-07-2023",
+    allocatedHours: "08:00",
+    shiftStart: "09:30"
   },
   { 
     id: "8", 
     name: "RAVI KUMAR", 
     department: "SECURITY DEPT.NIGHT SHIFT", 
     status: "NON-PAYROLLED", 
-    doj: "30-09-2023" 
+    doj: "30-09-2023",
+    allocatedHours: "12:00",
+    shiftStart: "21:00"
   }
 ];
 

@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { LucideIcon } from "lucide-react";
 
 interface StatCardProps {
   title: string;
@@ -14,6 +15,7 @@ interface StatCardProps {
   description?: string;
   className?: string;
   trend?: "up" | "down" | "neutral";
+  icon?: LucideIcon;
 }
 
 export function StatCard({ 
@@ -21,7 +23,8 @@ export function StatCard({
   value, 
   description, 
   className,
-  trend = "neutral"
+  trend = "neutral",
+  icon: Icon
 }: StatCardProps) {
   const getTrendColor = () => {
     switch (trend) {
@@ -34,7 +37,8 @@ export function StatCard({
   return (
     <Card className={cn("overflow-hidden", className)}>
       <CardHeader className="pb-2">
-        <CardDescription className="text-sm text-muted-foreground">
+        <CardDescription className="text-sm text-muted-foreground flex items-center gap-1.5">
+          {Icon && <Icon className="h-4 w-4" />}
           {title}
         </CardDescription>
       </CardHeader>
